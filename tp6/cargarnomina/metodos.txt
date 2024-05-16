@@ -1,0 +1,11 @@
+La interfaz List en Java proporciona varios métodos para manipular y acceder a elementos en una lista. Aquí te dejo algunos de los métodos más comunes además de add(), get(), size(), isEmpty(), y remove():
+
+set(int index, E element): Reemplaza el elemento en la posición especificada en esta lista con el elemento especificado.
+indexOf(Object o): Devuelve el índice de la primera aparición del elemento especificado en esta lista, o -1 si esta lista no contiene el elemento.
+lastIndexOf(Object o): Devuelve el índice de la última aparición del elemento especificado en esta lista, o -1 si esta lista no contiene el elemento.
+contains(Object o): Devuelve true si esta lista contiene el elemento especificado.
+toArray(): Devuelve un array que contiene todos los elementos en esta lista en la secuencia correcta.
+iterator(): Devuelve un iterador sobre los elementos en esta lista en la secuencia correcta.
+listIterator(): Devuelve un iterador de lista sobre los elementos en esta lista (en la secuencia correcta).
+subList(int fromIndex, int toIndex): Devuelve una vista de la porción de esta lista entre el índice fromIndex, inclusive, y el índice toIndex, exclusivo.
+clear(): Elimina todos los elementos de esta lista.

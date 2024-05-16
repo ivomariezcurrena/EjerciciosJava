@@ -1,0 +1,8 @@
+El método trimToSize() implementado en la clase DynamicArrayList tiene como objetivo ajustar el tamaño del array interno utilizado para almacenar los elementos de la lista dinámica. La razón principal para hacer esto es reducir el desperdicio de memoria.
+
+Aquí está lo que hace el método trimToSize():
+
+Comprueba si el tamaño actual de la lista (size) es menor que la longitud del array interno (elements.length). Si es así, significa que hay espacio no utilizado en el array interno.
+Utiliza el método Arrays.copyOf() para crear una nueva matriz con el tamaño exacto necesario para contener todos los elementos de la lista. La nueva longitud de la matriz será igual al tamaño actual de la lista (size).
+Asigna esta nueva matriz al array interno (elements), lo que efectivamente reduce el tamaño del array interno al mínimo necesario para almacenar los elementos de la lista sin desperdiciar memoria.
+En resumen, el método trimToSize() asegura que el array interno tenga exactamente el tamaño necesario para almacenar todos los elementos de la lista, eliminando cualquier espacio no utilizado y reduciendo así el consumo de memoria.

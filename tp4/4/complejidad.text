@@ -1,0 +1,32 @@
+powerSimple(2, 10)
+= 2 * powerSimple(2, 9)
+= 2 * (2 * powerSimple(2, 8))
+= 2 * (2 * (2 * powerSimple(2, 7)))
+= 2 * (2 * (2 * (2 * powerSimple(2, 6))))
+= 2 * (2 * (2 * (2 * (2 * powerSimple(2, 5)))))
+= 2 * (2 * (2 * (2 * (2 * (2 * powerSimple(2, 4))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * powerSimple(2, 3)))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * powerSimple(2, 2))))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * powerSimple(2, 1)))))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * powerSimple(2, 0))))))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * 1)))))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * 1))))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * (2 * 2)))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * (2 * 4))))))
+= 2 * (2 * (2 * (2 * (2 * (2 * 8)))))
+= 2 * (2 * (2 * (2 * (2 * 16))))
+= 2 * (2 * (2 * (2 * 32)))
+= 2 * (2 * (2 * 64))
+= 2 * (2 * 128)
+= 2 * 256
+= 512
+
+
+powerOptimized(2, 10)
+= powerOptimized(2, 5) * powerOptimized(2, 5)
+= (powerOptimized(2, 2) * powerOptimized(2, 2)) * (powerOptimized(2, 2) * powerOptimized(2, 2))
+= ((2 * 2) * (2 * 2)) * ((2 * 2) * (2 * 2))
+= (4 * 4) * (4 * 4)
+= 16 * 16
+= 256
+La complejidad de ambos algoritmos para calcular la potencia de un número es O(log n), donde "n" es el exponente. Esto se debe a que se divide el problema a la mitad en cada paso. En el caso del algoritmo optimizado, la división ocurre con mayor rapidez debido a la optimización de la multiplicación de los resultados parciales.

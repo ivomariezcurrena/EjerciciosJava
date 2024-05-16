@@ -1,0 +1,19 @@
+La interfaz Deque en Java proporciona varios métodos para manipular y acceder a elementos en una cola de dos extremos. Aquí te dejo algunos de los métodos más comunes:
+
+addFirst(E e): Inserta el elemento especificado al principio de la cola.
+addLast(E e): Inserta el elemento especificado al final de la cola.
+offerFirst(E e): Inserta el elemento especificado al principio de la cola si es posible hacerlo inmediatamente sin violar las restricciones de capacidad.
+offerLast(E e): Inserta el elemento especificado al final de la cola si es posible hacerlo inmediatamente sin violar las restricciones de capacidad.
+removeFirst(): Recupera y elimina el primer elemento de la cola.
+removeLast(): Recupera y elimina el último elemento de la cola.
+pollFirst(): Recupera y elimina el primer elemento de la cola, o devuelve null si la cola está vacía.
+pollLast(): Recupera y elimina el último elemento de la cola, o devuelve null si la cola está vacía.
+getFirst(): Recupera, pero no elimina, el primer elemento de la cola.
+getLast(): Recupera, pero no elimina, el último elemento de la cola.
+peekFirst(): Recupera, pero no elimina, el primer elemento de la cola, o devuelve null si la cola está vacía.
+peekLast(): Recupera, pero no elimina, el último elemento de la cola, o devuelve null si la cola está vacía.
+removeFirstOccurrence(Object o): Elimina la primera ocurrencia del elemento especificado de la cola.
+removeLastOccurrence(Object o): Elimina la última ocurrencia del elemento especificado de la cola.
+contains(Object o): Devuelve true si la cola contiene el elemento especificado.
+size(): Devuelve el número de elementos en la cola.
+isEmpty(): Devuelve true si la cola no contiene elementos.

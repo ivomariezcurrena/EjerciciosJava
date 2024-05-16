@@ -1,0 +1,12 @@
+la complejidad de cada algoritmo es la siguiente:
+
+Búsqueda binaria recursiva:
+
+Tiene una complejidad de tiempo de O(log n), donde "n" es el tamaño del arreglo.
+La búsqueda se realiza dividiendo el arreglo a la mitad en cada paso, lo que resulta en una complejidad logarítmica.
+Búsqueda binaria iterativa:
+
+También tiene una complejidad de tiempo de O(log n), donde "n" es el tamaño del arreglo.
+Al igual que la versión recursiva, la búsqueda se realiza dividiendo el arreglo a la mitad en cada iteración, lo que conduce a una complejidad logarítmica.
+
+Ambas implementaciones tienen la misma complejidad en términos de tiempo, ya que siguen el mismo enfoque de dividir el espacio de búsqueda a la mitad en cada paso. Sin embargo, la implementación iterativa podría ser más eficiente en la práctica en comparación con la versión recursiva debido a la menor sobrecarga asociada con las llamadas recursivas.

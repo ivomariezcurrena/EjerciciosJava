@@ -1,0 +1,16 @@
+Ahora, para realizar una traza del algoritmo, aquí tienes una traza del ordenamiento Quicksort recursivo para el arreglo {6, 2, 8, 3, 1, 5, 7, 4}:
+
+Seleccionamos el pivote, que es el último elemento del arreglo: pivote = 4.
+Recorremos el arreglo desde el primer elemento hasta el penúltimo elemento:
+6 > 4: No se hace nada.
+2 < 4: Intercambiamos arr[0] (6) con arr[1] (2). Nuevo arreglo: {2, 6, 8, 3, 1, 5, 7, 4}.
+8 > 4: No se hace nada.
+3 < 4: Intercambiamos arr[2] (8) con arr[3] (3). Nuevo arreglo: {2, 6, 3, 8, 1, 5, 7, 4}.
+1 < 4: Intercambiamos arr[4] (8) con arr[5] (1). Nuevo arreglo: {2, 6, 3, 1, 8, 5, 7, 4}.
+5 > 4: No se hace nada.
+7 > 4: No se hace nada.
+Intercambiamos el pivote (4) con el elemento en la posición correcta (índice 3). Nuevo arreglo: {2, 1, 3, 4, 8, 5, 7, 6}.
+Aplicamos Quicksort recursivamente al subarreglo antes del pivote (índices 0 a 2) y al subarreglo después del pivote (índices 4 a 7).
+Este proceso continúa recursivamente hasta que todos los subarreglos tienen 0 o 1 elemento, lo que significa que el arreglo está ordenado.
+
+La complejidad del algoritmo Quicksort es O(n log n) en el mejor y en el caso promedio, y O(n^2) en el peor caso (cuando el pivote no divide el arreglo en partes iguales). Sin embargo, en la práctica, Quicksort tiende a tener un rendimiento excelente y se prefiere a otros algoritmos de ordenamiento debido a su rápida convergencia hacia el caso promedio.  

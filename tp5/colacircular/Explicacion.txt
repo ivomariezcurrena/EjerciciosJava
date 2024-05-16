@@ -1,0 +1,19 @@
+La diferencia principal entre una cola circular y una deque (double-ended queue) es la funcionalidad que ofrecen y cómo gestionan los elementos.
+
+ArrayCircularQueue:
+Implementa la interfaz CircularQueue.
+Una cola circular es una estructura de datos que sigue el principio FIFO (First In, First Out), lo que significa que el primer elemento en ser agregado a la cola es el primero en ser eliminado.
+Una característica importante de una cola circular es que, una vez que se alcanza el final del arreglo que la representa, la inserción de nuevos elementos continúa desde el principio del arreglo (de ahí el término "circular").
+Las operaciones principales suelen ser enqueue para agregar elementos y dequeue para eliminarlos.
+Ideal para aplicaciones donde se necesita un acceso rápido al primer elemento y la capacidad de gestionar grandes volúmenes de datos de manera eficiente.
+
+
+ArrayCircularDeque:
+Implementa la interfaz Deque (Double-ended queue).
+Una deque es una estructura de datos que admite la inserción y eliminación de elementos tanto al principio como al final de la cola.
+Una deque también puede ofrecer funcionalidades adicionales como getFirst y getLast para obtener el primer y último elemento respectivamente.
+Una deque circular funciona de manera similar a una cola circular, pero con la capacidad de agregar y eliminar elementos tanto al principio como al final del arreglo.
+Puede ser útil en escenarios donde se necesitan operaciones eficientes de inserción y eliminación en ambos extremos de la estructura de datos, como en algoritmos de procesamiento de datos en lotes o en aplicaciones donde se requiere acceso rápido al primer y último elemento.
+
+
+En resumen, mientras que ArrayCircularQueue se centra principalmente en el comportamiento de una cola (FIFO), ArrayCircularDeque extiende este comportamiento para permitir operaciones tanto al principio como al final de la estructura de datos.

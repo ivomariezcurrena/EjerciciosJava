@@ -1,0 +1,1 @@
+Este código define una clase Stack que utiliza un ArrayList para almacenar sus elementos. La clase Stack proporciona varios métodos para manipular la pila, como push(), pop(), peek(), isEmpty(), y size()
