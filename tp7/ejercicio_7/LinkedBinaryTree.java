@@ -1,4 +1,4 @@
-package ejercicio_4;
+package ejercicio_7;
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -30,6 +30,12 @@ package ejercicio_4;
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
+import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 
   // ---------------- nested Node class ----------------
@@ -325,47 +331,82 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
     return temp;
   }
 
-  // Clone method
-  public LinkedBinaryTree<E> clone() {
-    LinkedBinaryTree<E> clonedTree = new LinkedBinaryTree<>();
-    if (!isEmpty()) {
-      clonedTree.root = cloneSubtree(root, null);
-      clonedTree.size = size;
+  /**
+   * Reemplaza todas las ocurrencias de un elemento por otro.
+   * 
+   * @param search  elemento a buscar
+   * @param replace elemento a remplazar
+   * @return retorna un iterable con todas las posiciones de los elementos
+   *         reemplazados
+   */
+  public Iterable<Position<E>> replaceAll(E search, E replace) {
+    List<Position<E>> replacedPositions = new ArrayList<>();
+    for (Position<E> p : positions()) {
+      if (p.getElement().equals(search)) {
+        ((Node<E>) p).setElement(replace); // Reemplazo el elemento
+        replacedPositions.add(p); // Agrego la posición a la lista
+      }
     }
-    return clonedTree;
+    return replacedPositions;
   }
 
-  // Helper method to clone a subtree rooted at a given node
-  private Node<E> cloneSubtree(Node<E> node, Node<E> parent) {
-    if (node == null)
-      return null;
-    Node<E> newNode = new Node<>(node.getElement(), parent, null, null);
-    newNode.setLeft(cloneSubtree(node.getLeft(), newNode));
-    newNode.setRight(cloneSubtree(node.getRight(), newNode));
-    return newNode;
+  /**
+   * Crea un árbol a partir de un árbol binario pasado en un arreglo
+   * 
+   * Por ejemplo dado el siguiente array:
+   * 
+   * {"/", "*", "+", "+", "4", "-", "2", "3", "1", null, null, "9", "5", null,
+   * null }
+   * 
+   * Crea un árbol cuyo recorrido es el siguiente:
+   *
+   * Por nivel: / * + + 4 - 2 3 1 9 5
+   * 
+   * Inorder: 3 + 1 * 4 / 9 - 5 + 2
+   * 
+   * @param array representación de un árbol binario en un arreglo
+   * 
+   */
+  public LinkedBinaryTree(E array[]) {
+    if (array == null || array.length == 0 || array[0] == null) {
+      throw new IllegalArgumentException("Array is null or empty, or root element is null");
+    }
+
+    // Creamos una cola para almacenar los nodos del árbol temporalmente
+    Queue<Node<E>> queue = new LinkedList<>();
+
+    // Creamos el nodo raíz y lo agregamos a la cola
+    root = createNode(array[0], null, null, null);
+    queue.offer(root);
+
+    int index = 1; // Índice para recorrer el arreglo
+
+    // Mientras haya elementos en la cola y elementos restantes en el arreglo
+    while (!queue.isEmpty() && index < array.length) {
+      // Tomamos el próximo nodo de la cola
+      Node<E> current = queue.poll();
+
+      // Creamos los hijos izquierdo y derecho del nodo actual según los elementos del
+      // arreglo
+      E leftElement = array[index++];
+      E rightElement = (index < array.length) ? array[index++] : null;
+
+      // Creamos los nodos hijos y los agregamos al árbol y a la cola si no son nulos
+      if (leftElement != null) {
+        Node<E> leftChild = createNode(leftElement, current, null, null);
+        current.setLeft(leftChild);
+        queue.offer(leftChild);
+      }
+      if (rightElement != null) {
+        Node<E> rightChild = createNode(rightElement, current, null, null);
+        current.setRight(rightChild);
+        queue.offer(rightChild);
+      }
+    }
+
+    // Calculamos el tamaño del árbol
+    size = array.length;
   }
 
-  // Equals method
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    LinkedBinaryTree<E> otherTree = (LinkedBinaryTree<E>) obj;
-    if (size() != otherTree.size())
-      return false;
-    return equals(root, otherTree.root);
-  }
-
-  // Helper method to check if two subtrees rooted at given nodes are equal
-  private boolean equals(Node<E> node1, Node<E> node2) {
-    if (node1 == null && node2 == null)
-      return true;
-    if (node1 == null || node2 == null)
-      return false;
-    if (!node1.getElement().equals(node2.getElement()))
-      return false;
-    return equals(node1.getLeft(), node2.getLeft()) && equals(node1.getRight(), node2.getRight());
-  }
-} // ----------- end of LinkedBinaryTree class -----------
+}
+// ----------- end of LinkedBinaryTree class -----------

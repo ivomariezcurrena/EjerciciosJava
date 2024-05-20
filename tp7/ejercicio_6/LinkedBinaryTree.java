@@ -1,4 +1,4 @@
-package ejercicio_4;
+package ejercicio_6;
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -323,49 +323,5 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
     node.setRight(null);
     node.setParent(node); // our convention for defunct node
     return temp;
-  }
-
-  // Clone method
-  public LinkedBinaryTree<E> clone() {
-    LinkedBinaryTree<E> clonedTree = new LinkedBinaryTree<>();
-    if (!isEmpty()) {
-      clonedTree.root = cloneSubtree(root, null);
-      clonedTree.size = size;
-    }
-    return clonedTree;
-  }
-
-  // Helper method to clone a subtree rooted at a given node
-  private Node<E> cloneSubtree(Node<E> node, Node<E> parent) {
-    if (node == null)
-      return null;
-    Node<E> newNode = new Node<>(node.getElement(), parent, null, null);
-    newNode.setLeft(cloneSubtree(node.getLeft(), newNode));
-    newNode.setRight(cloneSubtree(node.getRight(), newNode));
-    return newNode;
-  }
-
-  // Equals method
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    LinkedBinaryTree<E> otherTree = (LinkedBinaryTree<E>) obj;
-    if (size() != otherTree.size())
-      return false;
-    return equals(root, otherTree.root);
-  }
-
-  // Helper method to check if two subtrees rooted at given nodes are equal
-  private boolean equals(Node<E> node1, Node<E> node2) {
-    if (node1 == null && node2 == null)
-      return true;
-    if (node1 == null || node2 == null)
-      return false;
-    if (!node1.getElement().equals(node2.getElement()))
-      return false;
-    return equals(node1.getLeft(), node2.getLeft()) && equals(node1.getRight(), node2.getRight());
   }
 } // ----------- end of LinkedBinaryTree class -----------
